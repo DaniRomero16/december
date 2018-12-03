@@ -1,0 +1,28 @@
+{
+  "name": "december_project",
+  "version": "1.0.0",
+  "description": "voting platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniRomero16/december.git"
+  },
+  "author": "Daniel Romero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaniRomero16/december/issues"
+  },
+  "homepage": "https://github.com/DaniRomero16/december#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
