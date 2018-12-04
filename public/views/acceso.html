@@ -12,7 +12,8 @@
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.structure.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.theme.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
@@ -28,7 +29,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="" href="/programas">Programas</a></li>
                 <li><a class="" href="/mesa">Miembros de Mesa</a></li>
-                <li class="active"><a  href="/acceso">Acceso</a></li>
+                <li class="active"><a href="/acceso">Acceso</a></li>
                 <li><a class="" href="/resultados">Resultados</a></li>
             </ul>
         </div>
@@ -37,77 +38,147 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a class="" href="/programas">Programas</a></li>
         <li><a class="" href="/mesa">Miembros de Mesa</a></li>
-        <li class="active"><a  href="/acceso">Acceso</a></li>
+        <li class="active"><a href="/acceso">Acceso</a></li>
         <li><a class="" href="/resultados">Resultados</a></li>
     </ul>
 
-    <div class="parallax-container">
+    <div class="parallax-container acceso">
         <div class="parallax"><img src="../css/images/introduciendo.jpg"></div>
     </div>
     <div class="section white">
-        <div class="container">
-            <h2 >Formulario de acceso de Ciudadano</h2>
-            <div class="container-fluid">
-
+        <div class="row container">
+            <h3 class="header acceso">Formulario de Acceso para voto electrónico.</h3>
+            <div class="container">
                 <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix blue-text text-darken-4 large">account_circle</i>
+                                <input id="dni" type="text" class="validate">
+                                <label for="dni">DNI</label>
+                                <span class="helper-text"></span>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix blue-text text-darken-4 large">lock</i>
+                                <input id="firma_digital" type="password" class="validate">
+                                <label for="firma_digital">Firma Digital</label>
+                                <span class="helper-text"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect blue darken-4 waves-light" type="button" id="check"
+                                    name="action">Acceder
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                           
 
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">how_to_vote</i>
-                        <h4>
-                            Votación
-                        </h4>
-                        <p>
-                            Este portal servirá como método alternativo para el ejercicio de derecho a voto disponible
-                            a partir de 2019 para todo ciudadano que lo solicite.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">person</i>
-                        <h4>
-                            Miembros de Mesa
-                        </h4>
-                        <p>
-                            Si has sido elegido como miembro de mesa a través de este portal puedes realizar todas las
-                            gestiones necesarias, además de encontrar toda la información que necesite
-                            para la jornada electoral.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">import_contacts</i>
-                        <h4>
-                            Programas Electorales
-                        </h4>
-                        <p>
-                            Los programas y candidaturas presentados para las elecciones podrán ser consultados a
-                            través de este mismo sitio web.
-                            Simplemente haga click sobre el icono de arriba.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">bar_chart</i>
-                        <h4>
-                            Resultados y Estadísticas
-                        </h4>
-                        <p>
-                            Una vez termine la jornada electoral todos los resultados se podrán consultar a tiempo real
-                            desde este portal a medida que avance el escrutinio.
-                        </p>
-                    </div>
+                        </div>
+                        <div class="container" id="errores"></div>
+                        <div class="col s12"></div>
+                    </form>
                 </div>
+
             </div>
         </div>
+        <div class="container" id="vacio">
+            <div class="row">
+                <div class="col s12 m6" id="opciones">
+                    <form action="#">
+                        <p>
+                            <label>
+                                <input name="congreso" value="1" type="radio" checked />
+                                <span>Partido Popular</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="2" type="radio" />
+                                <span>PSOE</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="3" type="radio" />
+                                <span>Unidos Podemos</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="4" type="radio" />
+                                <span>Ciudadanos</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="5" type="radio" />
+                                <span>Esquerra Republicana de Catalunya</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="6" type="radio" />
+                                <span>Democràcia i Llibertat</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="7" type="radio" />
+                                <span>Partido Nacionalista Vasco</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="8" type="radio" />
+                                <span>Euskal Herria Bildu</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="congreso" value="9" type="radio" />
+                                <span>VOX</span>
+                            </label>
+                        </p>
+                    </form>
+                </div>
+                <div class="col s12 m6" id="sobre">
+                    <input type="button" id="llenarsobre" value="Llenar Sobre" class="btn blue darken-4 large">
+                    <img src="../css/images/sobre.png">
+                </div>
+
+            </div>
+           
+        </div>
+        <div class="container" id="lleno">
+            <div class="row">
+                <div class="col s12 m6" id="sobreLleno">
+                    <img src="../css/images/sobreLleno.png">
+                </div>
+                <div class="col s12 m6" id="urna">
+                    <img src="../css/images/urna.png">
+                </div>
+                <div class="col s12 m6">
+                    <h4>Arrastre el sobre a la urna para depositar su voto.</h4>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="parallax-container">
+    <div class="parallax-container acceso">
         <div class="parallax"><img src="../css/images/papeleta.jpg"></div>
     </div>
 
     <footer class="page-footer blue darken-4">
         <div class="footer-copyright">
             <div class="container">
-                <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>                
-                <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i class="fab fa-flickr"></i></a>
+                <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>
+                <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i
+                        class="fab fa-twitter-square"></i></a>
+                <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i
+                        class="fab fa-flickr"></i></a>
                 <a class="grey-text text-lighten-4 right" href="http://www.interior.gob.es/" target="_blank"><i class="fas fa-at"></i></a>
             </div>
         </div>

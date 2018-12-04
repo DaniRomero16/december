@@ -18,27 +18,9 @@ app.get('/programas',function(req, res){
     res.render('programas');
 });
 
-//insert tareas
-app.post('/tareas/add',function(req,res){
-    let sql = `INSERT INTO tarea (nombre) VALUES ('${req.body.nombre}')`;
-    con.query(sql, function(err, result){
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            let tarea = {
-                id: result.insertId,
-                nombre: req.body.nombre,
-                estado: req.body.estado
-            }
-            res.send(tarea);
-        }
-    });
-});
-
 //consultar registros
-app.get('/tareas/get', function(req, res){
-    let sql = 'SELECT * from tarea';
+app.get('/programas/partido', function(req, res){
+    let sql = `SELECT * from candidatura where candidatura_id=${req.query.id}`;
     con.query(sql, function(err, result){
         if (err) {
             res.send(err);
@@ -48,9 +30,44 @@ app.get('/tareas/get', function(req, res){
     });
 });
 
-//eliminar registros
-app.post('/tareas/delete', function(req, res){
-    let sql = `delete from tarea where id=${req.body.id}`;
+app.get('/programas/candidatos', function(req, res){
+    let sql = `select * from votante v inner join politico p on (p.politico_id = v.votante_id) where p.candidatura=${req.query.id}`;
+    con.query(sql, function(err, result){
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get('/checkdata', function(req, res){
+    let sql = `select * from votante where votante_id=${req.query.dni} and firma_digital=${req.query.firmaDigital};`;
+    con.query(sql, function(err, result){
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get('/mesa/check', function(req, res){
+    let sql = `select * 
+    from colegio c 
+    inner join mesaElectoral m on(c.colegio_id = m.colegio) 
+    inner join puestoMesa p on (p.votante =${req.query.dni} and p.mesa = m.mesa_id);`;
+    con.query(sql, function(err, result){
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get('/votar/check', function(req, res){
+    let sql = `select voto_parlamento from votante where votante_id=${req.query.dni};`;
     con.query(sql, function(err, result){
         if (err) {
             res.send(err);
@@ -61,17 +78,13 @@ app.post('/tareas/delete', function(req, res){
 });
 
 //modificar registros
-app.post('/tareas/update', function(req, res){
-    let sql = `update tarea set estado='${req.body.estado}' where id=${req.body.id}`;
+app.post('/votar', function(req, res){
+    let sql = `update votante set voto_parlamento=${req.body.voto} where votante_id=${req.body.dni}`;
     con.query(sql, function(err, result){
         if (err) {
             res.send(err);
         } else {
-            let tarea = {
-                nombre: req.body.nombre,
-                result: result
-            }
-            res.send(tarea);
+            res.send(result);
         }
     });
 });

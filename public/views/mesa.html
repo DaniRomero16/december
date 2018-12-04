@@ -12,11 +12,12 @@
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.structure.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.theme.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/mesa.js"></script>
 </head>
 
 <body>
@@ -46,54 +47,40 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <h2 class="header">Portal oficial de gestión Elecciones Generales 2019</h2>
-            <div class="container-fluid">
-
+            <h3 class="header mesa">Consulte aquí si ha sido asignado a una mesa electoral.</h3>
+            <div class="container">
                 <div class="row">
-
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">how_to_vote</i>
-                        <h4>
-                            Votación
-                        </h4>
-                        <p>
-                            Este portal servirá como método alternativo para el ejercicio de derecho a voto disponible
-                            a partir de 2019 para todo ciudadano que lo solicite.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">person</i>
-                        <h4>
-                            Miembros de Mesa
-                        </h4>
-                        <p>
-                            Si has sido elegido como miembro de mesa a través de este portal puedes realizar todas las
-                            gestiones necesarias, además de encontrar toda la información que necesite
-                            para la jornada electoral.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">import_contacts</i>
-                        <h4>
-                            Programas Electorales
-                        </h4>
-                        <p>
-                            Los programas y candidaturas presentados para las elecciones podrán ser consultados a
-                            través de este mismo sitio web.
-                            Simplemente haga click sobre el icono de arriba.
-                        </p>
-                    </div>
-                    <div class="col s12 m6 xl3 center">
-                        <i class="blue-text text-darken-4 large material-icons">bar_chart</i>
-                        <h4>
-                            Resultados y Estadísticas
-                        </h4>
-                        <p>
-                            Una vez termine la jornada electoral todos los resultados se podrán consultar a tiempo real
-                            desde este portal a medida que avance el escrutinio.
-                        </p>
-                    </div>
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix blue-text text-darken-4 large">account_circle</i>
+                                <input id="dni" type="text" class="validate">
+                                <label for="dni">DNI</label>
+                                <span class="helper-text" ></span>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix blue-text text-darken-4 large">lock</i>
+                                <input id="firma_digital" type="text" class="validate">
+                                <label  for="firma_digital">Firma Digital</label>
+                                <span class="helper-text" ></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect blue darken-4 waves-light" type="button" id="check" name="action">Comprobar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                            
+                        </div>
+                        <div class="row" >
+                                <div class="col s12" id="resultado">
+                                    
+                                </div>
+                            </div>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -104,10 +91,13 @@
     <footer class="page-footer blue darken-4">
         <div class="footer-copyright">
             <div class="container">
-                <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>                
-                <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i class="fab fa-flickr"></i></a>
+                <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>
+                <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i
+                        class="fab fa-twitter-square"></i></a>
+                <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i
+                        class="fab fa-flickr"></i></a>
                 <a class="grey-text text-lighten-4 right" href="http://www.interior.gob.es/" target="_blank"><i class="fas fa-at"></i></a>
             </div>
         </div>
