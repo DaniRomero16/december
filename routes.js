@@ -77,6 +77,17 @@ app.get('/votar/check', function(req, res){
     });
 });
 
+app.get('/votos/count', function(req, res){
+    let sql = `select count(*) as total, voto_parlamento as partido from votante group by voto_parlamento;`;
+    con.query(sql, function(err, result){
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 //modificar registros
 app.post('/votar', function(req, res){
     let sql = `update votante set voto_parlamento=${req.body.voto} where votante_id=${req.body.dni}`;

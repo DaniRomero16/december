@@ -7,7 +7,10 @@
 }
 
 .parallax-container.resultados{
-    height: 225px;
+    height: 185px;
+}
+.parallax-container.resultados2{
+    height: 120px;
 }
 
 .parallax-container.mesa, .parallax-container.acceso{
@@ -44,11 +47,11 @@ min-height: 350px;
 }
 
 .section .header{
-    font-size: 3vw;
+    font-size: 2.7vw;
 }
 
 .section .header.mesa, .section .header.acceso{
-    font-size: 2.5vw;
+    font-size: 2.2vw;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -61,13 +64,14 @@ min-height: 350px;
     }
 }
 
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .section .header{
-        font-size: 6vw;
+        font-size: 5vw;
     }
     .section .header.mesa, .section .header.acceso{
-        font-size: 5vw;
+        font-size: 4vw;
     }
 }
 
@@ -79,4 +83,8 @@ min-height: 350px;
 }
 #sobreLleno img{
     max-width: 25%;
+}
+
+body{
+    font-family: 'Noto Sans', sans-serif;
 }

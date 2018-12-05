@@ -12,7 +12,8 @@
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.structure.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/jquery-ui.theme.min.css" />
     <link type="text/css" rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
@@ -21,53 +22,57 @@
 
 <body>
 
-        <nav class="blue darken-4">
-            <div class="nav-wrapper container ">
-                <a href="/" class="brand-logo"><img src="../css/images/logo.png"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a class="" href="/programas">Programas</a></li>
-                    <li><a class="" href="/mesa">Miembros de Mesa</a></li>
-                    <li class="active"><a href="/resultados">resultados</a></li>
-                    <li><a class="" href="/resultados">Resultados</a></li>
-                </ul>
-            </div>
-        </nav>
-    
-        <ul class="sidenav" id="mobile-demo">
-            <li><a class="" href="/programas">Programas</a></li>
-            <li><a class="" href="/mesa">Miembros de Mesa</a></li>
-            <li class="active"><a href="/resultados">resultados</a></li>
-            <li><a class="" href="/resultados">Resultados</a></li>
-        </ul>
-    
-        <div class="parallax-container resultados">
-            <div class="parallax"><img src="../css/images/introduciendo.jpg"></div>
-        </div>
-        <div class="section white" >
-            <div id="graph" style="height: 370px; width: 100%;">
+    <nav class="light-blue darken-4">
+        <div class="nav-wrapper container ">
+            <a href="/" class="brand-logo"><img src="../css/images/logo.png"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="" href="/">Inicio</a></li>
+                <li><a class="" href="/programas">Programas</a></li>
+                <li><a class="" href="/mesa">Miembros de Mesa</a></li>
+                <li><a class="" href="/acceso">Acceso</a></li>
+                <li class="active"><a href="/resultados">Resultados</a></li>
 
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="" href="/">Inicio</a></li>
+        <li><a class="" href="/programas">Programas</a></li>
+        <li><a class="" href="/mesa">Miembros de Mesa</a></li>
+        <li><a class="" href="/acceso">Acceso</a></li>
+        <li class="active"><a href="/resultados">Resultados</a></li>
+
+    </ul>
+
+    <div class="parallax-container resultados">
+        <div class="parallax"><img src="../css/images/papeletas.jpg"></div>
+    </div>
+    <div class="section white">
+        <div id="graph" style="height: 480px; width: 100%;">
+
+        </div>
+    </div>
+    <div class="parallax-container resultados2">
+        <div class="parallax"><img src="../css/images/papeleta.jpg"></div>
+    </div>
+
+    <footer class="page-footer light-blue darken-4">
+        <div class="footer-copyright">
+            <div class="container">
+                <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>
+                <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i
+                        class="fab fa-twitter-square"></i></a>
+                <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i
+                        class="fab fa-flickr"></i></a>
+                <a class="grey-text text-lighten-4 right" href="http://www.interior.gob.es/" target="_blank"><i class="fas fa-at"></i></a>
             </div>
         </div>
-        <div class="parallax-container resultados">
-            <div class="parallax"><img src="../css/images/papeleta.jpg"></div>
-        </div>
-    
-        <footer class="page-footer blue darken-4">
-            <div class="footer-copyright">
-                <div class="container">
-                    <span class="bottom">© 2019 Gobierno de España - Ministerio del Interior</span>
-                    <a class="grey-text text-lighten-4 right" href="http://www.youtube.com/interiorgob" target="_blank"><i
-                            class="fab fa-youtube"></i></a>
-                    <a class="grey-text text-lighten-4 right" href="https://twitter.com/interiorgob" target="_blank"><i
-                            class="fab fa-twitter-square"></i></a>
-                    <a class="grey-text text-lighten-4 right" href="http://www.flickr.com/photos/interior_gob_es/" target="_blank"><i
-                            class="fab fa-flickr"></i></a>
-                    <a class="grey-text text-lighten-4 right" href="http://www.interior.gob.es/" target="_blank"><i class="fas fa-at"></i></a>
-                </div>
-            </div>
-        </footer>
-        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-    </body>
+    </footer>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
 
 </html>

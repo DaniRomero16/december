@@ -32,6 +32,8 @@ $(document).ready(function () {
                     let votos = res[0];
                     if (votos.voto_parlamento !== null) {
                         errores.append($('<h4 class="red-text text-darken-4">Ya ha votado.</h4>'));
+                        setTimeout(function(){ location.href = '/resultados'; }, 2000);
+                        
                     } else {
                         vacio.show();
                     }
@@ -60,19 +62,21 @@ $(document).ready(function () {
                     voto: voto
                 }
                 $.post('http://localhost:3000/votar',data, function(res){
-                    console.log(res);
+                    
                     if (res.affectedRows !== 0) {
                         $('.section').empty();
                         let gracias = $('<h2 class="center">SU VOTO AL PARLAMENTO HA SIDO EMITIDO</h2>');
                         let container = $('<div class="container"></div>');
                         let container2 = $('<div class="container-fluid col s12 center"></div>');
                         let imagen = $('<img class="center" src="../css/images/parlamento.png">');
-                        imagen.css('max-width', '70%');
+                        imagen.css('max-width', '40%');
                         container.append(gracias);
                         container2.append(imagen);
 
                         $('.section').append(container);
                         $('.section').append(container2);
+
+                        setTimeout(function(){ location.href = '/resultados'; }, 2500);
     
                     } else {
                         $('.section').empty();

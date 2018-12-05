@@ -1,38 +1,48 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.parallax').parallax();
-    
-    var options = {
-        title: {
-            text: "Desktop OS Market Share in 2017"
-        },
-        subtitles: [{
-            text: "As of November, 2017"
-        }],
-        animationEnabled: true,
-        data: [{
-            type: "pie",
-            startAngle: 40,
-            toolTipContent: "<b>{label}</b>: {y}%",
-            showInLegend: "true",
-            legendText: "{label}",
-            indexLabelFontSize: 16,
-            indexLabel: "{label} - {y}%",
-            dataPoints: [
-                { y: 48.36, label: "Windows 7" },
-                { y: 26.85, label: "Windows 10" },
-                { y: 1.49, label: "Windows 8" },
-                { y: 6.98, label: "Windows XP" },
-                { y: 6.53, label: "Windows 8.1" },
-                { y: 2.45, label: "Linux" },
-                { y: 3.32, label: "Mac OS X 10.12" },
-                { y: 4.03, label: "Others" }
-            ]
-        }]
-    };
-    $("#graph").CanvasJSChart(options);
-    
-    
+
+    $.get('http://localhost:3000/votos/count', function (res) {  
+        
+        let participantes = 0;
+        res.forEach(e => {
+            if (e.partido != null) {
+                participantes += e.total;
+            }   
+        });
+        const ESC = participantes / 350;
+        
+        var options = {
+            title: {
+                text: "Escrutinio de Votos"
+            },
+            subtitles: [{
+                text: "Elecciones Generales, 2019"
+            }],
+            animationEnabled: true,
+            data: [{
+                type: "pie",
+                startAngle: 40,
+                toolTipContent: "<b>{label}</b>: {y} Escaños",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y} Escaños",
+                dataPoints: [
+                    { y: Math.round(res[1].total/ESC), label: "PP", color: '#015ba0'},
+                    { y: Math.round(res[2].total/ESC), label: "PSOE", color: '#8e0101' },
+                    { y: Math.round(res[3].total/ESC), label: "Unidos Podemos", color: '#6d1696' },
+                    { y: Math.round(res[4].total/ESC), label: "Ciudadanos", color: '#ef5f0b' },
+                    { y: Math.round(res[5].total/ESC), label: "ERC", color: '#f2b93e' },
+                    { y: Math.round(res[6].total/ESC), label: "DiL", color: '#0e0889' },
+                    { y: Math.round(res[7].total/ESC), label: "PNV", color: '#1c560b' },
+                    { y: Math.round(res[8].total/ESC), label: "Bildu", color: '#98b743' },
+                    { y: Math.round(res[9].total/ESC), label: "VOX", color: '#2ab21e' }
+                ]
+            }]
+        };
+        $("#graph").CanvasJSChart(options);
+    });
 
 });
 
