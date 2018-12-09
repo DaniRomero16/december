@@ -32,8 +32,8 @@ $(document).ready(function () {
                     let votos = res[0];
                     if (votos.voto_parlamento !== null) {
                         errores.append($('<h4 class="red-text text-darken-4">Ya ha votado.</h4>'));
-                        setTimeout(function(){ location.href = '/resultados'; }, 2000);
-                        
+                        setTimeout(redirect, 2500);
+
                     } else {
                         vacio.show();
                     }
@@ -44,47 +44,77 @@ $(document).ready(function () {
 
     });
 
-    $('#llenarsobre').on('click', function(){
+    $('#llenarsobre').on('click', function () {
         voto = $("input[name='congreso']:checked").val();
         vacio.hide();
         lleno.show();
         vote(dni, voto);
     });
 
-   
+    
+
+
 
     function vote(dni2, voto) {
         $('#urna').droppable({
             drop: () => {
-            let dni = dni2;
+                let dni = dni2;
                 let data = {
                     dni: dni,
                     voto: voto
                 }
-                $.post('http://localhost:3000/votar',data, function(res){
-                    
+                $.post('http://localhost:3000/votar', data, function (res) {
+
                     if (res.affectedRows !== 0) {
                         $('.section').empty();
-                        let gracias = $('<h2 class="center">SU VOTO AL PARLAMENTO HA SIDO EMITIDO</h2>');
+                        let gracias = $('<h3 class="center">SU VOTO AL PARLAMENTO HA SIDO EMITIDO</h3>');
                         let container = $('<div class="container"></div>');
-                        let container2 = $('<div class="container-fluid col s12 center"></div>');
+                        let container2 = $('<div class="container center"></div>');
                         let imagen = $('<img class="center" src="../css/images/parlamento.png">');
-                        imagen.css('max-width', '40%');
+                        let imagen2 = $('<img class="center" src="../css/images/logo.png">');
+                        imagen.css('width', '40%');
                         container.append(gracias);
                         container2.append(imagen);
+                        container2.append(imagen2);
 
                         $('.section').append(container);
                         $('.section').append(container2);
 
-                        setTimeout(function(){ location.href = '/resultados'; }, 2500);
-    
+                        setTimeout(redirect, 2500);
+
                     } else {
                         $('.section').empty();
                         errores.append($('<h4 class="red-text text-darken-4">HA OCURRIDO UN ERROR</h4>'));
-                    } 
+                        setTimeout(redirect, 2500);
+                    }
                 });
             }
         });
+    }
+
+    function redirect() {
+        $('.section').empty();
+
+        let gracias = $('<h3 class="center">ESTÁ SIENDO REDIRIGIDO...</h3>');
+        let container = $('<div class="container"></div>');
+        let container2 = $('<div class="container center"></div>');
+        let imagen = $(`<div class="preloader-wrapper big active">
+                                <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                                </div>
+                            </div>`);
+        container.append(gracias);
+        container2.append(imagen);
+        $('.section').append(container);
+        $('.section').append(container2);
+
+        setTimeout(function () { location.href = '/resultados'; }, 2500);
     }
 
 });
