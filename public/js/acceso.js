@@ -32,7 +32,7 @@ $(document).ready(function () {
                     let votos = res[0];
                     if (votos.voto_parlamento !== null) {
                         errores.append($('<h4 class="red-text text-darken-4">Ya ha votado.</h4>'));
-                        setTimeout(redirect, 2500);
+                        setTimeout(redirect, 2300);
 
                     } else {
                         vacio.show();
@@ -50,10 +50,6 @@ $(document).ready(function () {
         lleno.show();
         vote(dni, voto);
     });
-
-    
-
-
 
     function vote(dni2, voto) {
         $('#urna').droppable({
@@ -80,12 +76,12 @@ $(document).ready(function () {
                         $('.section').append(container);
                         $('.section').append(container2);
 
-                        setTimeout(redirect, 2500);
+                        setTimeout(redirect, 2300);
 
                     } else {
                         $('.section').empty();
                         errores.append($('<h4 class="red-text text-darken-4">HA OCURRIDO UN ERROR</h4>'));
-                        setTimeout(redirect, 2500);
+                        setTimeout(redirect, 2300);
                     }
                 });
             }
@@ -114,7 +110,7 @@ $(document).ready(function () {
         $('.section').append(container);
         $('.section').append(container2);
 
-        setTimeout(function () { location.href = '/resultados'; }, 2500);
+        setTimeout(function () { location.href = '/resultados'; }, 2200);
     }
 
 });
