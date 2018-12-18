@@ -50,7 +50,7 @@ $(document).ready(function () {
         lleno.show();
         vote(dni, voto);
     });
-
+    
     function vote(dni2, voto) {
         $('#urna').droppable({
             drop: () => {
